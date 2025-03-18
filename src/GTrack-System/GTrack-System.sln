@@ -1,11 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35707.178 d17.12
+VisualStudioVersion = 17.12.35707.178
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GTrack-Control", "GTrack-Control\GTrack-Control.csproj", "{99EA139E-DB4E-40EE-845B-E273CB542495}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GTrack-Node", "GTrack-Node\GTrack-Node.csproj", "{9400FC32-3523-4639-94F2-1321988EEC58}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GTrack-Station", "GTrack-Station\GTrack-Station.csproj", "{0479B053-37EF-4AA5-BC98-1644400954B2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GTrack-Styles", "GTrack-Styles\GTrack-Styles.csproj", "{2F1E91A4-8CCC-430F-ADB7-69098B7CE877}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{9400FC32-3523-4639-94F2-1321988EEC58}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9400FC32-3523-4639-94F2-1321988EEC58}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9400FC32-3523-4639-94F2-1321988EEC58}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0479B053-37EF-4AA5-BC98-1644400954B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0479B053-37EF-4AA5-BC98-1644400954B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0479B053-37EF-4AA5-BC98-1644400954B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0479B053-37EF-4AA5-BC98-1644400954B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F1E91A4-8CCC-430F-ADB7-69098B7CE877}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F1E91A4-8CCC-430F-ADB7-69098B7CE877}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F1E91A4-8CCC-430F-ADB7-69098B7CE877}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F1E91A4-8CCC-430F-ADB7-69098B7CE877}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,25 @@
+﻿<Window x:Class="GTrack_Control.MainWindow" mc:Ignorable="d"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        Title="{Binding Title}" 
+        Height="500" Width="800"
+        WindowStartupLocation="CenterScreen"
+        DataContext="{Binding MainViewModel, Source={StaticResource ViewModelLocator}}">
+    
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            
+            <MenuItem Header="Файл">
+                <MenuItem Header="*" />
+            </MenuItem>
+            
+            <MenuItem Header="Настройки">
+                <MenuItem Header="*" />
+            </MenuItem>
+        </Menu>
+
+        <ContentControl Content="{Binding Content}"/>
+    </DockPanel>
+</Window>
