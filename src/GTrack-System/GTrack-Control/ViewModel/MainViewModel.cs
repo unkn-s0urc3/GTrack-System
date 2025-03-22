@@ -6,10 +6,19 @@ namespace GTrack_Control.ViewModel
 {
     public class MainViewModel : ReactiveObject
     {
-        public string Title { get; set; }
+        private string _title;
+        public string Title
+        {
+            get => _title;
+            set => this.RaiseAndSetIfChanged(ref _title, value);
+        }
 
-        public UserControl Content { get; set; }
-
+        private UserControl _content;
+        public UserControl Content
+        {
+            get => _content;
+            set => this.RaiseAndSetIfChanged(ref _content, value);
+        }
 
         public MainViewModel()
         {

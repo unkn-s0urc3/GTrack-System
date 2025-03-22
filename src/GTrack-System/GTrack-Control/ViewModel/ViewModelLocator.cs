@@ -11,6 +11,7 @@ namespace GTrack_Control.ViewModel
             var services = new ServiceCollection();
 
             services.AddTransient<MainViewModel>();
+            services.AddTransient<GTrackControlViewModel>();
 
             _provider = services.BuildServiceProvider();
 
@@ -21,5 +22,7 @@ namespace GTrack_Control.ViewModel
         }
 
         public MainViewModel MainViewModel => _provider.GetRequiredService<MainViewModel>();
+
+        public GTrackControlViewModel GTrackControlViewModel => _provider.GetRequiredService<GTrackControlViewModel>();
     }
 }

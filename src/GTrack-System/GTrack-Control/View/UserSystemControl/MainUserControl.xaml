@@ -4,7 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              mc:Ignorable="d"
-             d:DesignHeight="500" d:DesignWidth="800">
+             d:DesignHeight="500" d:DesignWidth="800"
+             DataContext="{Binding GTrackControlViewModel, Source={StaticResource ViewModelLocator}}">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -22,13 +23,12 @@
                 <StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="5">
                         <TextBlock Text="Локальный IP" />
-                        <TextBox Text="" Width="150" Margin="10,0,0,0"/>
+                        <TextBox Text="{Binding LocalIpGTrack, UpdateSourceTrigger=PropertyChanged}" Width="150" Margin="10,0,0,0"/>
                         <TextBlock Text="Порт" Margin="10,0,0,0"/>
-                        <TextBox Text="" Width="50" Margin="10,0,0,0"/>
+                        <TextBox Text="{Binding Por, UpdateSourceTrigger=PropertyChanged}" Width="50" Margin="10,0,0,0"/>
                         <Button Content="Запуск" Width="80" Margin="10,0,0,0"/>
                     </StackPanel>
-                    <TextBlock Text="Состояние: подключено [192.168.0.1]" 
-                               Foreground="{StaticResource ActiveBrush}" Margin="5" />
+                    <TextBlock Text="{Binding StatusGTrack}" Margin="5" />
                 </StackPanel>
             </GroupBox>
 
@@ -36,13 +36,12 @@
                 <StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="5">
                         <TextBlock Text="Локальный IP" />
-                        <TextBox Text="" Width="150" Margin="10,0,0,0"/>
+                        <TextBox Text="{Binding LocalIpHouston, UpdateSourceTrigger=PropertyChanged}" Width="150" Margin="10,0,0,0"/>
                         <TextBlock Text="Порт" Margin="10,0,0,0"/>
-                        <TextBox Text="" Width="50" Margin="10,0,0,0"/>
+                        <TextBox Text="{Binding PortHouston, UpdateSourceTrigger=PropertyChanged}" Width="50" Margin="10,0,0,0"/>
                         <Button Content="Запуск" Width="80" Margin="10,0,0,0"/>
                     </StackPanel>
-                    <TextBlock Text="Состояние: ожидание подключения"
-                               Foreground="{StaticResource WarningBrush}" Margin="5" />
+                    <TextBlock Text="{Binding StatusHouston}" Margin="5" />
                 </StackPanel>
             </GroupBox>
         </Grid>
@@ -56,18 +55,17 @@
 
                 <StackPanel>
                     <TextBlock Text="Выбор управляемой GTrack-Station" />
-                    <ListBox Height="250" ScrollViewer.CanContentScroll="True" Margin="0,10,0,0"/>
+                    <ListBox ItemsSource="{Binding GTrackStations}" SelectedItem="{Binding SelectedStation}" Height="250" ScrollViewer.CanContentScroll="True" Margin="0,10,0,0"/>
                     <Button Content="Принять" Width="100" Margin="0,10,0,0"/>
                 </StackPanel>
 
                 <StackPanel Grid.Row="1">
                     <TextBlock Text="Текущее наблюдение:" HorizontalAlignment="Center" Margin="0,10,0,0"/>
-                    <TextBlock Text="ReshUCube-2 (RS37S)" HorizontalAlignment="Center"
-                               Foreground="{StaticResource ActiveBrush}" Margin="0,2,0,0" />
+                    <TextBlock Text="{Binding CurrentObservation}" HorizontalAlignment="Center"
+                               Margin="0,2,0,0" />
                     <Button Content="Загрузить TLE" Width="100" Margin="0,10,0,5" />
                 </StackPanel>
             </Grid>
         </GroupBox>
-
     </Grid>
 </UserControl>
