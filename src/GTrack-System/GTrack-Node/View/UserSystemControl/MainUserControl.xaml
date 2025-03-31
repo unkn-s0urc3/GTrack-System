@@ -4,55 +4,82 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              mc:Ignorable="d"
-             d:DesignHeight="500" d:DesignWidth="800">
+             d:DesignHeight="500" d:DesignWidth="800"
+             DataContext="{Binding GTrackNodeViewModel, Source={StaticResource ViewModelLocator}}">
 
+    <!-- The main grid layout that holds all other UI elements -->
     <Grid>
+        <!-- Defines two columns for the layout -->
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="6*"/>
+            <!-- First column (6 parts of the available width) -->
             <ColumnDefinition Width="4*"/>
+            <!-- Second column (4 parts of the available width) -->
         </Grid.ColumnDefinitions>
 
+        <!-- StackPanel for the first section of controls (server connection and GTrack Node setup) -->
         <StackPanel>
+            <!-- GroupBox for managing connection to the GTrack Control Server -->
             <GroupBox Header="Подключение к серверу управления" Margin="5">
                 <StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="5">
+                        <!-- Text and TextBox for the server's IP address -->
                         <TextBlock Text="IP сервера" VerticalAlignment="Center"/>
-                        <TextBox Text="" Width="150" Margin="5"/>
+                        <TextBox Text="{Binding LocalIpGTrackControl}" Width="150" Margin="5"/>
+
+                        <!-- Text and TextBox for the server's port -->
                         <TextBlock Text="Порт" VerticalAlignment="Center"/>
-                        <TextBox Text="" Width="50" Margin="5"/>
-                        <Button Content="Подключиться" Width="100" Margin="5"/>
+                        <TextBox Text="{Binding PortGTrackControl}" Width="50" Margin="5"/>
+
+                        <!-- Button to connect to the server, triggers the command -->
+                        <Button Content="Подключиться" Width="100" Margin="5"
+                                Command="{Binding ConnectGTrackControlServerCommand}" />
                     </StackPanel>
-                    <TextBlock Text="Состояние: подключено" Foreground="{StaticResource ActiveBrush}" Margin="5"/>
+                    <!-- Displays the connection status -->
+                    <TextBlock Text="{Binding StatusGTrackControl}" Margin="5"/>
                 </StackPanel>
             </GroupBox>
 
+            <!-- GroupBox for managing the GTrack Node server settings -->
             <GroupBox Header="Сервер GTrack-Node" Margin="5">
                 <StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="5">
+                        <!-- Text and TextBox for the local IP address of the GTrack Node server -->
                         <TextBlock Text="Локальный IP" VerticalAlignment="Center"/>
-                        <TextBox Text="" Width="150" Margin="5"/>
+                        <TextBox Text="{Binding LocalIpGTrackNode}" Width="150" Margin="5"/>
+
+                        <!-- Text and TextBox for the port of the GTrack Node server -->
                         <TextBlock Text="Порт" VerticalAlignment="Center"/>
-                        <TextBox Text="" Width="50" Margin="5"/>
-                        <Button Content="Запуск" Width="100" Margin="5"/>
+                        <TextBox Text="{Binding PortGTrackNode}" Width="50" Margin="5"/>
+
+                        <!-- Button to start the GTrack Node server, triggers the command -->
+                        <Button Content="Запуск" Width="100" Margin="5"
+                                Command="{Binding StartGTrackNodeServerCommand}"/>
                     </StackPanel>
-                    <TextBlock Text="Состояние: подключено" Foreground="{StaticResource ActiveBrush}" Margin="5"/>
+                    <!-- Displays the status of the GTrack Node server -->
+                    <TextBlock Text="{Binding StatusGTrackNode}" Margin="5"/>
+
+                    <!-- Displays the list of connected GTrack Stations -->
                     <TextBlock Text="Список подключенных GTrack-Station:" Margin="5" />
-                    <ListBox Height="200" ScrollViewer.CanContentScroll="True" Margin="5"/>
+                    <ListBox DataContext="{Binding GTrackStations}" 
+                             Height="200" ScrollViewer.CanContentScroll="True" Margin="5"/>
                 </StackPanel>
             </GroupBox>
         </StackPanel>
 
+        <!-- GroupBox for displaying current observation data in the second column -->
         <GroupBox Header="Текущее наблюдение" Grid.Column="1" 
                   VerticalAlignment="Top" Margin="5">
             <StackPanel Margin="5">
-                <TextBlock Text="Станция: ID_01001"/>
-                <TextBlock Text="Спутник: ReshUCube-2 (RS37S)"/>
-                <TextBlock Text="Следующий сеанс: 2025/03/11 05:04:24 UTC"/>
-                <TextBlock Text="Azimuth: 180.58 град."/>
-                <TextBlock Text="Elevation: -20.36 град."/>
-                <TextBlock Text="Slant Range: 8452 км"/>
-                <TextBlock Text="Altitude: 534 км"/>
-                <TextBlock Text="Doppler: -54 Гц"/>
+                <!-- Displays various parameters of the current observation -->
+                <TextBlock Text="{Binding CurrentStation}"/>
+                <TextBlock Text="{Binding CurrentSatellite}"/>
+                <TextBlock Text="{Binding NextSessionTime}"/>
+                <TextBlock Text="{Binding Azimuth}"/>
+                <TextBlock Text="{Binding Elevation}"/>
+                <TextBlock Text="{Binding SlantRange}"/>
+                <TextBlock Text="{Binding Altitude}"/>
+                <TextBlock Text="{Binding Doppler}"/>
             </StackPanel>
         </GroupBox>
     </Grid>
