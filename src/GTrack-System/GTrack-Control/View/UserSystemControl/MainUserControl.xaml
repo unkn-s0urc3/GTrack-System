@@ -8,62 +8,83 @@
              DataContext="{Binding GTrackControlViewModel, Source={StaticResource ViewModelLocator}}">
 
     <Grid>
+        <!-- Define column structure for the layout -->
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="500"/>
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
 
+        <!-- Define inner grid to hold two groups for server settings -->
         <Grid>
+            <!-- Define row structure for the layout inside the inner grid -->
             <Grid.RowDefinitions>
                 <RowDefinition Height="100"/>
                 <RowDefinition Height="100"/>
             </Grid.RowDefinitions>
 
+            <!-- GroupBox for GTrack-Control server settings -->
             <GroupBox Header="Сервер GTrack-Control" Margin="5">
                 <StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="5">
                         <TextBlock Text="Локальный IP" />
-                        <TextBox Text="{Binding LocalIpGTrack, UpdateSourceTrigger=PropertyChanged}" Width="150" Margin="10,0,0,0"/>
+                        <!-- TextBox to input local IP for GTrack-Control -->
+                        <TextBox Text="{Binding LocalIpGTrackControl}" Width="150" Margin="10,0,0,0"/>
                         <TextBlock Text="Порт" Margin="10,0,0,0"/>
-                        <TextBox Text="{Binding Por, UpdateSourceTrigger=PropertyChanged}" Width="50" Margin="10,0,0,0"/>
-                        <Button Content="Запуск" Width="80" Margin="10,0,0,0"/>
+                        <!-- TextBox to input port for GTrack-Control -->
+                        <TextBox Text="{Binding PortGTrackControl}" Width="50" Margin="10,0,0,0"/>
+                        <Button Content="Запуск" Width="80" Margin="10,0,0,0"
+                                Command="{Binding StartGTrackControlServerCommand}" />
                     </StackPanel>
-                    <TextBlock Text="{Binding StatusGTrack}" Margin="5" />
+                    <!-- TextBlock to display status of GTrack-Control server -->
+                    <TextBlock Text="{Binding StatusGTrackControl}" Margin="5" />
                 </StackPanel>
             </GroupBox>
 
+            <!-- GroupBox for Houston server settings -->
             <GroupBox Header="Сервер Houston" Margin="5" Grid.Row="1">
                 <StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="5">
                         <TextBlock Text="Локальный IP" />
-                        <TextBox Text="{Binding LocalIpHouston, UpdateSourceTrigger=PropertyChanged}" Width="150" Margin="10,0,0,0"/>
+                        <!-- TextBox to input local IP for Houston server -->
+                        <TextBox Text="{Binding LocalIpHouston}" Width="150" Margin="10,0,0,0"/>
                         <TextBlock Text="Порт" Margin="10,0,0,0"/>
-                        <TextBox Text="{Binding PortHouston, UpdateSourceTrigger=PropertyChanged}" Width="50" Margin="10,0,0,0"/>
-                        <Button Content="Запуск" Width="80" Margin="10,0,0,0"/>
+                        <!-- TextBox to input port for Houston server -->
+                        <TextBox Text="{Binding PortHouston}" Width="50" Margin="10,0,0,0"/>
+                        <Button Content="Запуск" Width="80" Margin="10,0,0,0"
+                                Command="{Binding StartHoustonServerCommand}" />
                     </StackPanel>
+                    <!-- TextBlock to display status of Houston server -->
                     <TextBlock Text="{Binding StatusHouston}" Margin="5" />
                 </StackPanel>
             </GroupBox>
         </Grid>
 
+        <!-- GroupBox for station control settings -->
         <GroupBox Header="Управление" Margin="5" VerticalAlignment="Top" Grid.Column="1">
             <Grid>
+                <!-- Define row structure for the layout inside the control group -->
                 <Grid.RowDefinitions>
                     <RowDefinition Height="310"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
 
+                <!-- StackPanel for station selection -->
                 <StackPanel>
                     <TextBlock Text="Выбор управляемой GTrack-Station" />
+                    <!-- ListBox to select a station from available options -->
                     <ListBox ItemsSource="{Binding GTrackStations}" SelectedItem="{Binding SelectedStation}" Height="250" ScrollViewer.CanContentScroll="True" Margin="0,10,0,0"/>
-                    <Button Content="Принять" Width="100" Margin="0,10,0,0"/>
+                    <Button Content="Принять" Width="100" Margin="0,10,0,0"
+                            Command="{Binding AcceptStationCommand}" />
                 </StackPanel>
 
+                <!-- StackPanel for current observation and related actions -->
                 <StackPanel Grid.Row="1">
                     <TextBlock Text="Текущее наблюдение:" HorizontalAlignment="Center" Margin="0,10,0,0"/>
+                    <!-- TextBlock to display current observation -->
                     <TextBlock Text="{Binding CurrentObservation}" HorizontalAlignment="Center"
                                Margin="0,2,0,0" />
-                    <Button Content="Загрузить TLE" Width="100" Margin="0,10,0,5" />
+                    <Button Content="Загрузить TLE" Width="100" Margin="0,10,0,5" 
+                            Command="{Binding LoadTLECommand}" />
                 </StackPanel>
             </Grid>
         </GroupBox>
