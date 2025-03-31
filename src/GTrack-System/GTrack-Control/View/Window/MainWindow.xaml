@@ -8,19 +8,27 @@
         MinHeight="300" MinWidth="800"
         WindowStartupLocation="CenterScreen"
         DataContext="{Binding MainViewModel, Source={StaticResource ViewModelLocator}}">
-    
+
+    <!-- Main container for the window, DockPanel allows for flexible placement of child elements -->
     <DockPanel>
+
+        <!-- Menu at the top of the window -->
         <Menu DockPanel.Dock="Top">
-            
+
+            <!-- 'File' menu item -->
             <MenuItem Header="Файл">
+                <!-- Placeholder menu item under 'File' -->
                 <MenuItem Header="*" />
             </MenuItem>
-            
+
+            <!-- 'Settings' menu item -->
             <MenuItem Header="Настройки">
+                <!-- Placeholder menu item under 'Settings' -->
                 <MenuItem Header="*" />
             </MenuItem>
         </Menu>
 
+        <!-- ContentControl that binds to the 'Content' property of the ViewModel -->
         <ContentControl Content="{Binding Content}"/>
     </DockPanel>
 </Window>
