@@ -4,12 +4,16 @@
              xmlns:local="clr-namespace:GTrack_Node" 
              xmlns:viewmodel="clr-namespace:GTrack_Node.ViewModel"
              StartupUri="View/Window/MainWindow.xaml">
+    
+    <!-- Application-wide resources -->
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="pack://application:,,,/GTrack-Styles;component/Theme/Generic.xaml"/>
+                <!-- Merges external resource dictionary for styling from a separate assembly -->
+                <ResourceDictionary Source="pack://application:,,,/GTrack-Style;component/Theme/Generic.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
+            <!-- Register ViewModelLocator as a resource, making it accessible throughout the application -->
             <viewmodel:ViewModelLocator x:Key="ViewModelLocator"/>
         </ResourceDictionary>
     </Application.Resources>
