@@ -1,5 +1,5 @@
 ﻿using GTrack_Control.Service;
-using GTrack_Services.Service;
+using GTrack_Service.Service;
 using Microsoft.Win32;
 using MvvmCross.Commands;
 using MvvmCross.ViewModels;
