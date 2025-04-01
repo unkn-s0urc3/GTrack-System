@@ -1,5 +1,5 @@
 ﻿using GTrack_Node.Service;
-using GTrack_Services.Service;
+using GTrack_Service.Service;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace GTrack_Node.ViewModel

@@ -1,6 +1,6 @@
-﻿using System.Net; // Required for working with IP addresses
+﻿using System.Net;
 
-namespace GTrack_Services.Service
+namespace GTrack_Service.Service
 {
     // NetworkValidationService is responsible for validating IP addresses and port numbers
     public class NetworkValidationService
@@ -47,5 +47,6 @@ namespace GTrack_Services.Service
             }
             return false; // Return false if the port number is invalid or out of range
         }
+
     }
 }

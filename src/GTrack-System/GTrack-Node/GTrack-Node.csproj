@@ -24,8 +24,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\GTrack-Services\GTrack-Service.csproj" />
-    <ProjectReference Include="..\GTrack-Styles\GTrack-Style.csproj" />
+    <ProjectReference Include="..\GTrack-Service\GTrack-Service.csproj" />
+    <ProjectReference Include="..\GTrack-Style\GTrack-Style.csproj" />
   </ItemGroup>
 
 </Project>
